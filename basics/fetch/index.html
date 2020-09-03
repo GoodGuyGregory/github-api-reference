@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API </title>
+</head>
+
+<body>
+    <button id="getText">Get Text</button>
+    <div id="output">
+
+    </div>
+
+    <script>
+        document.getElementById('getText').addEventListener('click', getText);
+
+        function getText() {
+            // console.log('gettext');
+            //   NON ARROW FUNCTION WAY:
+            // fetch('sample.txt')
+            //     //  gets the text from the response body
+            //     .then(function (res) {
+            //         return res.text();
+            //     })
+            //     //  sets the response to the data object then displays it
+            //     .then(function (data) {
+            //         console.log(data)
+            //     })
+
+            // ES6 ARROW FUNCTIONS:
+            fetch('sample.txt')
+                .then((res) => res.text())
+                .then((data) => {
+                    //  insert the items into the webpage
+                    document.getElementById('output').innerHTML = data;
+                })
+                .catch((err) => console.log(err));
+        }
+    </script>
+</body>
+
+</html>
